@@ -2,7 +2,8 @@
 
 import random 
 
-# camel game 
+# simple text based camel run game
+
 """ Welcome Message & Intro """
 print("Welcome to Camel!")
 print("You have stolen a camel to make your way across the great Mobi desert.")
@@ -26,20 +27,24 @@ while not done:
     print("D. Stop for the night.")
     print("E. Status check.")
     print("Q. Quit.")
-    print("")
+    
     user_choice = input("Your Choice? ")
     user_choice = user_choice.upper()
+    # quit game
     if user_choice == 'Q':
         done = True
+    # Check Status
     elif user_choice == 'E':
         print("Miles traveled: ", miles_traveled)
         print("Drinks in canteen: ", canteen_drinks)
         print("The natives are", native_dist, "miles behind you.\n")
+    # Rest the Camel / Stop for the night
     elif user_choice == 'D':
         print("Your camel is rested.")
         camel_tiredness = 0
         native_dist -= random.randrange(7,15)
         print("The natives are", native_dist, "miles behind you.\n")
+    # Full Speed travel
     elif user_choice == 'C':
         miles = random.randrange(10,21)
         print("You traveled", miles, "miles.")
@@ -49,6 +54,7 @@ while not done:
         native_dist -= random.randrange(7,15)
         native_dist += miles
         print("The natives are",native_dist, "miles behind you.\n")
+    # Moderate Speed travel
     elif user_choice == 'B':
         miles = random.randrange(5,13)
         print("You traveled", miles, "miles.")
@@ -57,6 +63,7 @@ while not done:
         native_dist -= random.randrange(7,15)
         native_dist += miles
         print("The natives are",native_dist, "miles behind you.\n")
+    # Canteen drink
     elif user_choice == 'A':
         if canteen_drinks > 0:
             canteen_drinks -= 1
@@ -64,6 +71,7 @@ while not done:
             print("You drink from your canteen.\n")
         else:
             print("Your canteen is empty!\n")
+    # Turn conditionals
     if thirst > 3 and thirst < 6:
         print("You're thirsty.\n")
     if thirst >= 6:
